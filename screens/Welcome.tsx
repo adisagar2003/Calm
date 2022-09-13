@@ -1,13 +1,21 @@
 import { View, Text,Image,ImageBackground,StyleSheet,TouchableOpacity } from 'react-native';
-import { FunctionComponent } from 'react';
+import { FunctionComponent,useEffect } from 'react';
 import styled from 'styled-components/native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-
+import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
-
+import { Dimensions } from 'react-native';
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 const Welcome:FunctionComponent = ({navigation}) => {
-
+  useEffect(() => {
+    async function prepare() {
+      await SplashScreen.preventAutoHideAsync();
+    }
+    
+    prepare();
+  }, []);
 //FONT-------------------SECTION---------------------------------------------------------------------
 //FONT-------------------SECTION---------------------------------------------------------------------
 //FONT-------------------SECTION---------------------------------------------------------------------
@@ -56,18 +64,18 @@ background:#552d58;
     const WelcomeBlock  = styled.View`
    
     position:absolute;
-    min-width: "100vw";
-    max-width:"100vw"
-    min-height:"100vh";
-    max-width:"100vh";
+    min-width: 100;
+    max-width:100;
+    min-height:100;
+    max-width:100;
     background-color: #4B5563;
   
     `
 
     const styles = StyleSheet.create({
         img: {
-          height: 100,
-          width: 200,
+          height: windowHeight,
+          width: windowWidth,
      
         },
         input: {
@@ -110,7 +118,7 @@ Calm
 
 
 <ButtonContainer>
-  <StartButton><Text style={{color: 'white',top:50,fontSize:20,position:'relative', fontWeight:500,fontFamily:'sans-serif'}} onPress={()=>navigation.navigate("")}>Get started</Text></StartButton>
+  <StartButton><Text style={{color: 'white',top:50,fontSize:20,position:'relative'}} onPress={()=>navigation.navigate("Dashboard")}>Get started</Text></StartButton>
 </ButtonContainer>
 
         </ImageBackground>

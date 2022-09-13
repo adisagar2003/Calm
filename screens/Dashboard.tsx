@@ -1,7 +1,18 @@
 import { View, Text, ImageBackground } from 'react-native'
 import React from 'react'
-import { FunctionComponent } from 'react';
+import { FunctionComponent,componentWillMount } from 'react';
 import { useFonts } from 'expo-font';
+import { Dimensions } from 'react-native';
+import Podcast from '../components/podcast';
+import { AppLoading, Font } from 'expo'
+
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const podcastHeight = Dimensions.get('window').height-200;
+const podcastWidth = Dimensions.get('window').width-80;
+
+
 const Dashboard:FunctionComponent = () => {
     const [fontsLoaded] = useFonts({
         'Cursive-heading': require('../fonts/font-bold.ttf'),
@@ -16,11 +27,11 @@ const Dashboard:FunctionComponent = () => {
 'https://res.cloudinary.com/dvdwmixyk/image/upload/v1662816984/Adventure-minimalistic-artwork_oozetc.png',
         }}
         resizeMode="cover"
-    style={{width:199,height:500,padding:40}} blurRadius={3}
+    style={{width:windowWidth,height:windowHeight,padding:40}} blurRadius={31}
     > 
-    <View>
+    <View style={{padding:20}}>
 
-<Text style={{fontWeight:600,color:'white',fontSize:29}}>What Brings you </Text>
+<Text style={{color:'white',fontSize:29}}>What Brings you </Text>
 
 
 <View style={{flexDirection:'row',gap:9,left:30}}>
@@ -35,11 +46,28 @@ const Dashboard:FunctionComponent = () => {
     </View>
 
 {/*
-
-Cards to show the shit
-
-
+=================
+Cards to show
+=================
+==================
 */}
+
+<View style={{flexDirection:'column', gap:20,borderRadius:4,width:podcastWidth,height:podcastHeight,padding:10}}>
+
+<Podcast />
+
+<Podcast />
+<Podcast />
+</View>
+
+
+{/*
+------------------------------------
+Cards to show END
+-----------------------------------
+------------------------------------
+*/}
+
     </ImageBackground>
 
     </View>
