@@ -63,12 +63,7 @@ background:#552d58;
 
     const WelcomeBlock  = styled.View`
    
-    position:absolute;
-    min-width: 100;
-    max-width:100;
-    min-height:100;
-    max-width:100;
-    background-color: #4B5563;
+    
   
     `
 

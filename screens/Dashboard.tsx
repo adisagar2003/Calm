@@ -1,9 +1,9 @@
-import { View, Text, ImageBackground } from 'react-native'
+import { View, Text, ImageBackground,ScrollView } from 'react-native'
 import React from 'react'
 import { FunctionComponent,componentWillMount } from 'react';
 import { useFonts } from 'expo-font';
 import { Dimensions } from 'react-native';
-import Podcast from '../components/podcast';
+import Podcast from '../components/Podcast';
 import { AppLoading, Font } from 'expo'
 
 
@@ -51,16 +51,21 @@ Cards to show
 =================
 ==================
 */}
-
+<ScrollView>
 <View style={{flexDirection:'column', gap:20,borderRadius:4,width:podcastWidth,height:podcastHeight,padding:10}}>
 
 <Podcast />
-
+<Podcast />
+<Podcast />
+<Podcast />
+<Podcast />
+<Podcast />
+<Podcast />
 <Podcast />
 <Podcast />
 </View>
 
-
+</ScrollView>
 {/*
 ------------------------------------
 Cards to show END
